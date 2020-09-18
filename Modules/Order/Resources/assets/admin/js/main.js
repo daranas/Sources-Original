@@ -2,7 +2,7 @@ $('#order-status').change((e) => {
     $.ajax({
         type: 'PUT',
         url: route('admin.orders.status.update', e.currentTarget.dataset.id),
-        data: { status: e.currentTarget.value },
+        data: { status: e.currentTarget.value, no_resi: 'test'},
         success: (message) => {
             success(message);
         },

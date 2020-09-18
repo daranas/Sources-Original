@@ -30,6 +30,7 @@ class SaveProductRequest extends Request
             'tax_class_id' => ['nullable', Rule::exists('tax_classes', 'id')],
             'is_active' => 'required|boolean',
             'price' => 'required|numeric|min:0|max:99999999999999',
+            'weight' => 'required',
             'special_price' => 'nullable|numeric|min:0|max:99999999999999',
             'special_price_type' => ['nullable', Rule::in(['fixed', 'percent'])],
             'special_price_start' => 'nullable|date',

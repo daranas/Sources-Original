@@ -13,8 +13,11 @@
                 @slot('thead')
                     <tr>
                         <th>{{ trans('transaction::transactions.table.order_id') }}</th>
-                        <th>{{ trans('transaction::transactions.table.transaction_id') }}</th>
-                        <th>{{ trans('transaction::transactions.table.payment_method') }}</th>
+                        <th>
+                            Payment
+                            <!-- {{ trans('transaction::transactions.table.transaction_id') }} -->
+                        </th>
+                        <!-- <th>{{ trans('transaction::transactions.table.payment_method') }}</th> -->
                         <th data-sort>{{ trans('admin::admin.table.created') }}</th>
                     </tr>
                 @endslot
@@ -33,7 +36,7 @@
             columns: [
                 { data: 'order_id' },
                 { data: 'transaction_id' },
-                { data: 'payment_method' },
+                // { data: 'payment_method' },
                 { data: 'created', name: 'created_at' },
             ],
         });

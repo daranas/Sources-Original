@@ -52,7 +52,7 @@
                     </div>
                 </div>
 
-                @include('public.home.sections.slider_banners')
+                <!-- @include('public.home.sections.slider_banners') -->
             </div>
         </div>
     </div>

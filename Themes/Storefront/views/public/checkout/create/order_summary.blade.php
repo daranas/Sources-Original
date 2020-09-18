@@ -5,10 +5,14 @@
 
             <ul class="list-inline cart-item">
                 <li v-for="cartItem in cart.items">
+                    <input type="hidden" class="totalQTY" :value="cartItem.qty">
                     <label>
                         <a :href="productUrl(cartItem.product)" class="product-name" v-text="cartItem.product.name"></a>
                         <span class="product-quantity" v-text="'x' + cartItem.qty"></span>
                     </label>
+                    <div class="d-none">
+                        <input class="totalWeight" type="text" :value="cartItem.product.weight * cartItem.qty">
+                    </div>
 
                     <span class="price-amount" v-html="cartItem.unitPrice.inCurrentCurrency.formatted"></span>
                 </li>
@@ -60,7 +64,7 @@
             <div class="shipping-methods" v-cloak>
                 <h6>{{ trans('storefront::cart.shipping_method') }}</h6>
 
-                <div class="form-group" v-if="hasShippingMethod">
+                <div class="form-group d-none" v-if="hasShippingMethod">
                     <div class="form-radio" v-for="shippingMethod in cart.availableShippingMethods">
                         <input
                             type="radio"
@@ -81,9 +85,26 @@
                     </div>
                 </div>
 
-                <span class="error-message" v-else>
+                <span class="error-message d-none" v-else>
                     {{ trans('storefront::cart.shipping_method_is_not_configured') }}
                 </span>
+
+                <div id="shipping-wrapper">
+                    <div class="form-group">
+                        <select id="shipping-list" class="form-control arrow-black" required disabled>
+                            <option value="">Pilih Kurir</option>
+                        </select>
+                    </div>
+                    <p class="small text-danger">Anda belum melengkapi data pengiriman</p>
+                </div>
+            </div>
+
+            <div class="d-none">
+                <input type="text" name="default_total" class="default-total" :value="cart.total.inCurrentCurrency.formatted">
+                <input type="text" name="before_shipping" class="before-shipping" :value="cart.total.inCurrentCurrency.amount">
+                <input type="text" v-model="form.billing.after" name="billing[after]" class="after-shipping">
+                <input type="text" v-model="form.billing.type" name="billing[type]" class="type-shipping">
+                <input type="text" v-model="form.billing.cost" name="billing[cost]" class="cost-shipping">
             </div>
 
             <div class="order-summary-total">
@@ -91,7 +112,7 @@
                 <span class="total-price" v-html="cart.total.inCurrentCurrency.formatted"></span>
             </div>
         </div>
-
+        @auth
         <div class="order-summary-bottom">
             <div class="form-group checkout-terms-and-conditions">
                 <div class="form-check">
@@ -121,5 +142,8 @@
                 {{ trans('storefront::checkout.place_order') }}
             </button>
         </div>
+        @else
+        <p class="text-muted">Login untuk melanjutkan!</p>
+        @endauth
     </div>
 </aside>

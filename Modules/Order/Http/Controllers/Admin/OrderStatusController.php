@@ -16,7 +16,10 @@ class OrderStatusController
      */
     public function update(Order $order)
     {
-        $order->update(['status' => request('status')]);
+        $order->update([
+            'status' => request('status'),
+            'no_resi' => request('no_resi')
+        ]);
 
         $message = trans('order::messages.status_updated');
 

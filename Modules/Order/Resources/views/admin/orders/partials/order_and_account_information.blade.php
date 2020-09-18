@@ -33,6 +33,7 @@
                                 <td>
                                     <div class="row">
                                         <div class="col-lg-9 col-md-10 col-sm-10">
+                                            <input type="text" name="no_resi" class="form-control" style="margin-bottom:15px" placeholder="Nomor Resi" id="noResi" value="{{ $order->no_resi }}"/>
                                             <select id="order-status" class="form-control custom-select-black" data-id="{{ $order->id }}">
                                                 @foreach (trans('order::statuses') as $name => $label)
                                                     <option value="{{ $name }}" {{ $order->status === $name ? 'selected' : '' }}>

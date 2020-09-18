@@ -13,6 +13,7 @@
                 @slot('thead')
                     <tr>
                         <th>{{ trans('admin::admin.table.id') }}</th>
+                        <th>No Resi</th>
                         <th>{{ trans('order::orders.table.customer_name') }}</th>
                         <th>{{ trans('order::orders.table.customer_email') }}</th>
                         <th>{{ trans('admin::admin.table.status') }}</th>
@@ -35,6 +36,7 @@
         new DataTable('#orders-table .table', {
             columns: [
                 { data: 'id', width: '5%' },
+                { data: 'no_resi', name: 'no_resi'},
                 { data: 'customer_name', orderable: false, searchable: false },
                 { data: 'customer_email' },
                 { data: 'status' },

@@ -82,7 +82,7 @@
             </div>
         </div>
 
-        <div class="col-md-9">
+        <!-- <div class="col-md-9">
             <div class="form-group">
                 <label for="billing-city">
                     {{ trans('checkout::attributes.billing.city') }}<span>*</span>
@@ -104,7 +104,7 @@
                 >
                 </span>
             </div>
-        </div>
+        </div> -->
 
         <div class="col-md-9">
             <div class="form-group">
@@ -160,7 +160,7 @@
             </div>
         </div>
 
-        <div class="col-md-9">
+        <!-- <div class="col-md-9">
             <div class="form-group">
                 <label for="billing-state">
                     {{ trans('checkout::attributes.billing.state') }}<span>*</span>
@@ -201,6 +201,38 @@
                 >
                 </span>
             </div>
+        </div> -->
+
+        <div class="col-md-9">
+            @php
+            $jsonFile = file_get_contents(url('/countries/ID/states'));
+            $stateData = json_decode($jsonFile);
+            @endphp
+            <div class="form-group">
+                <label for="billing-state">
+                    {{ trans('checkout::attributes.billing.state') }}<span>*</span>
+                </label>
+
+                <select name="billing[state]" id="billing-state" class="form-control arrow-black" v-model="form.billing.state" required>
+                    <option value="">{{ trans('storefront::checkout.please_select') }}</option>
+                    @foreach($stateData as $key => $getState)
+                    <option value="{{ $key }}">{{ $getState }}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
+
+        <div class="col-md-9">
+            <div class="form-group">
+                <label for="billing-city">
+                    {{ trans('checkout::attributes.billing.city') }}<span>*</span>
+                </label>
+                
+                <select name="billing[city]" id="billing-city" class="form-control arrow-black" v-model="form.billing.city" required disabled>
+                    <option value="">{{ trans('storefront::checkout.please_select') }}</option>
+                </select>
+            </div>
+        </div>
+
     </div>
 </div>

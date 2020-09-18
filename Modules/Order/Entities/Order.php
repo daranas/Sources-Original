@@ -164,7 +164,7 @@ class Order extends Model
      */
     public function getShippingMethodAttribute($shippingMethod)
     {
-        return ShippingMethod::get($shippingMethod)->label ?? '';
+        return ShippingMethod::get($shippingMethod)->label ?? $shippingMethod;
     }
 
     /**
@@ -264,6 +264,7 @@ class Order extends Model
                 'total',
                 'status',
                 'created_at',
+                'no_resi',
             ]);
 
         return new OrderTable($query);

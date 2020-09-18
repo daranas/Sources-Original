@@ -49,7 +49,7 @@
     >
         <section class="product-details-wrap">
             <div class="container">
-                <div class="product-details-top">
+                <div class="product-details-top justify-content-center">
                     <div class="product-details-top-inner">
                         @include('public.products.show.images')
 
@@ -193,7 +193,7 @@
                     @include('public.products.show.right_sidebar')
                 </div>
 
-                <div class="product-details-bottom flex-column-reverse flex-lg-row">
+                <div class="product-details-bottom justify-content-center">
                     @include('public.products.show.left_sidebar')
 
                     <div class="product-details-bottom-inner">

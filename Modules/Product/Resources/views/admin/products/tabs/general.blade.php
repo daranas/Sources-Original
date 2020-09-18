@@ -3,6 +3,10 @@
 
 <div class="row">
     <div class="col-md-8">
+        <!-- custom -->
+        {{ Form::number('weight', 'Weight', $errors, $product, ['required' => true]) }}
+        <!-- /custom -->
+
         {{ Form::select('brand_id', trans('product::attributes.brand_id'), $errors, $brands, $product) }}
         {{ Form::select('categories', trans('product::attributes.categories'), $errors, $categories, $product, ['class' => 'selectize prevent-creation', 'multiple' => true]) }}
         {{ Form::select('tax_class_id', trans('product::attributes.tax_class_id'), $errors, $taxClasses, $product) }}

@@ -48,6 +48,7 @@ class Product extends Model
         'slug',
         'sku',
         'price',
+        'weight',
         'special_price',
         'special_price_type',
         'special_price_start',

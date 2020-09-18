@@ -48,4 +48,76 @@
     @if (setting('storefront_one_column_banner_enabled'))
         <banner-one-column :banner="{{ json_encode($oneColumnBanner) }}"></banner-one-column>
     @endif
+
+    @include('public.home.sections.product')
+    
 @endsection
+
+@push('scripts')
+<script src="{{ v(Theme::url('public/js/jquery.lazy.min.js')) }}"></script>
+<script src="{{ v(Theme::url('public/js/jquery.lazy.plugins.min.js')) }}"></script>
+<script>
+    let productSwiper = $('.product-swiper');
+
+    if (productSwiper.length !== 0) {
+        productSwiper.slick({
+            rows: 0,
+            dots: false,
+            arrows: false,
+            infinite: false,
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1761,
+                    settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 5,
+                    },
+                },
+                {
+                    breakpoint: 1301,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4,
+                    },
+                },
+                {
+                    breakpoint: 1051,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                    },
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4,
+                    },
+                },
+                {
+                    breakpoint: 881,
+                    settings: {
+                        variableWidth: true,
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                    },
+                },
+                {
+                    breakpoint: 641,
+                    settings: {
+                        variableWidth: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    },
+                },
+            ],
+        }).slickAnimation();
+    }
+
+    $(function() {
+        $('img.lazy').Lazy();
+    });
+</script>
+@endpush

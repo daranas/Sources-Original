@@ -32,6 +32,7 @@
             </h5>
 
             <div class="sidebar-cart-actions">
+                @auth
                 <a href="{{ route('cart.index') }}" class="btn btn-default btn-view-cart">
                     {{ trans('storefront::layout.view_cart') }}
                 </a>
@@ -39,6 +40,9 @@
                 <a href="{{ route('checkout.create') }}" class="btn btn-primary btn-checkout">
                     {{ trans('storefront::layout.checkout') }}
                 </a>
+                @else
+                <p class="text-muted">Login untuk melanjutkan!</p>
+                @endauth
             </div>
         </div>
     </aside>

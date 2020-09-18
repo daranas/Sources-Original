@@ -46,7 +46,7 @@
                 </li>
             </ul>
 
-            <div class="shipping-methods" v-cloak>
+            <div class="shipping-methods d-none" v-cloak>
                 <h6>{{ trans('storefront::cart.shipping_method') }}</h6>
 
                 <div class="form-group" v-if="hasShippingMethod">

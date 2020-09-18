@@ -23,6 +23,8 @@
             <link rel="stylesheet" href="{{ v(Theme::url('public/css/app.css')) }}">
         @endif
 
+        <link rel="stylesheet" href="{{ v(Theme::url('public/css/custom.css')) }}">
+
         <link rel="shortcut icon" href="{{ $favicon }}" type="image/x-icon">
 
         @stack('styles')
@@ -95,6 +97,7 @@
 
             @yield('content')
 
+            @include('public.layout.feature_contact')
             @include('public.home.sections.subscribe')
             @include('public.layout.footer')
 
@@ -110,6 +113,7 @@
         @stack('pre-scripts')
 
         <script src="{{ v(Theme::url('public/js/app.js')) }}"></script>
+        <script src="{{ v(Theme::url('public/js/custom.js')) }}"></script>
 
         @stack('scripts')
 

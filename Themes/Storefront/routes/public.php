@@ -12,3 +12,5 @@ Route::post('storefront/newsletter-popup', 'NewsletterPopup@store')->name('store
 Route::delete('storefront/newsletter-popup', 'NewsletterPopup@destroy')->name('storefront.newsletter_popup.destroy');
 
 Route::delete('storefront/cookie-bar', 'CookieBarController@destroy')->name('storefront.cookie_bar.destroy');
+
+Route::post('account/confirm-payment', 'AccountController@confirmPayment');

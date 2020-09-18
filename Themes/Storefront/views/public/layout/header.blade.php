@@ -35,10 +35,21 @@
                             <div class="count" v-text="wishlistCount"></div>
                         </div>
 
-                        <span>{{ trans('storefront::layout.favorites') }}</span>
+                        <!-- <span>{{ trans('storefront::layout.favorites') }}</span> -->
                     </a>
 
-                    <div class="header-cart">
+                    <a href="{{ route('account.dashboard.index') }}" class="header-wishlist ml-md-3 header-account">
+                        <div class="icon-wrap">
+                            <i class="lar la-user"></i>
+                        </div>
+                        @auth
+                        <span>Akun</span>
+                        @else
+                        <span>Login</span>
+                        @endauth
+                    </a>
+
+                    <div class="header-cart ml-md-4">
                         <div class="icon-wrap">
                             <i class="las la-cart-arrow-down"></i>
                             <div class="count" v-text="cart.quantity"></div>
