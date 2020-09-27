@@ -25,7 +25,7 @@
                         <div class="modal fade" id="confirmPaymentModal-{{ $order->id }}" tabindex="-1" role="dialog" aria-labelledby="confirmPaymentModalLabel">
                             <div class="modal-dialog modal-sm" role="document">
                                 <div class="modal-content">
-                                <form method="POST" action="{{ url('/account/confirm-payment')}}">
+                                <form method="POST" action="{{ url('/account/confirm-payment')}}" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="order_id" value="{{ $order->id }}">
                                     <div class="modal-body text-left" style="padding:20px">
@@ -40,6 +40,10 @@
                                         <div class="form-group">
                                             <label for="name">Atas Nama</label>
                                             <input type="text" name="name" class="form-control" id="name" placeholder="Atas Nama" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nominal">Bukti Pembayaran</label>
+                                            <input type="file" name="file" class="form-control" id="file" required />
                                         </div>
                                     </div>
                                     <div class="modal-footer justify-content-between">

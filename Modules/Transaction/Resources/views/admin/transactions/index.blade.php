@@ -18,6 +18,7 @@
                             <!-- {{ trans('transaction::transactions.table.transaction_id') }} -->
                         </th>
                         <!-- <th>{{ trans('transaction::transactions.table.payment_method') }}</th> -->
+                        <th>Bukti Pembayaran</th>
                         <th data-sort>{{ trans('admin::admin.table.created') }}</th>
                     </tr>
                 @endslot
@@ -37,6 +38,7 @@
                 { data: 'order_id' },
                 { data: 'transaction_id' },
                 // { data: 'payment_method' },
+                { data: 'file' },
                 { data: 'created', name: 'created_at' },
             ],
         });

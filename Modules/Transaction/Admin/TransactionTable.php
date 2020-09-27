@@ -25,6 +25,11 @@ class TransactionTable extends AdminTable
                 $orderUrl = route('admin.orders.show', $transaction->order_id);
 
                 return "<a href='{$orderUrl}'>{$transaction->order_id}</a>";
+            })
+            ->addColumn('file', function($transaction) {
+                return view('admin::partials.table.image_custom', [
+                    'file' => $transaction->file,
+                ]);
             });
     }
 }
